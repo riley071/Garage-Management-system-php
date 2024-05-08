@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage Management System - FAQ</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    header {
+        background-color: #0350dd;
+        color: #fff;
+        padding: 20px;
+    }
+    
+    header h1 {
+        margin: 0;
+    }
+    
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    nav ul li {
+        display: inline;
+        margin-right: 10px;
+    }
+    
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    main {
+        padding: 20px;
+    }
+    
+    .faq h3 {
+        color: #333;
+        background-color: #f2f2f2;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 5px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .faq h3:hover {
+        background-color: #e0e0e0;
+    }
+    
+    .faq p {
+        color: #666;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .search-container {
+        margin-bottom: 20px;
+    }
+    
+    .search-container input[type=text] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+ 
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Garage Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search FAQ...">
+        </div>
+
+        <div id="faqList">
+
+            <section class="faq">
+                <h3 class="question">How do I log in to the garage management system?</h3>
+                <p class="answer">To log in, navigate to the login page and enter your credentials (username and password) in the designated fields. Then, click on the "Log In" button to access your account.</p>
+            </section>
+            
+            <section class="faq">
+                <h3 class="question">How can I add a new vehicle to the system?</h3>
+                <p class="answer">To add a new vehicle, go to the vehicle management dashboard and look for the "Add Vehicle" button. Click on it and fill out the required information for the new vehicle, such as make, model, year, and license plate number. Then, submit the form to add the vehicle to the system.</p>
+            </section>
+            
+            <section class="faq">
+                <h3 class="question">How do I schedule a service appointment for a vehicle?</h3>
+                <p class="answer">To schedule a service appointment, navigate to the service scheduling section of the system. Select the vehicle for which you want to schedule the appointment, choose the desired service type and date, and confirm the appointment details. Then, submit the appointment request to schedule the service.</p>
+            </section>
+            
+            <section class="faq">
+                <h3 class="question">Is it possible to track vehicle maintenance history?</h3>
+                <p class="answer">Yes, the garage management system allows you to track vehicle maintenance history. Each service appointment and maintenance task performed on a vehicle is recorded in the system, including details such as service type, date, and cost. You can view the complete maintenance history for each vehicle to monitor its upkeep.</p>
+            </section>
+            
+            <section class="faq">
+                <h3 class="question">Can I generate reports for vehicle maintenance and expenses?</h3>
+                <p class="answer">Yes, the garage management system provides reporting capabilities for vehicle maintenance and expenses. You can generate various reports, such as maintenance history reports, service expense reports, and fuel consumption reports, to analyze vehicle performance and costs. Simply select the desired report type, specify the reporting parameters, and generate the report for analysis.</p>
+            </section>
+
+            <section class="faq">
+                <h3 class="question">How do I delete a vehicle from the system?</h3>
+                <p class="answer">To delete a vehicle, navigate to the vehicle management section and locate the vehicle you want to remove. Then, select the option to delete the vehicle and confirm the action when prompted. Please note that deleting a vehicle will also remove its associated maintenance history from the system.</p>
+            </section>
+            
+            <section class="faq">
+                <h3 class="question">Is there a way to track vehicle usage and mileage?</h3>
+                <p class="answer">Yes, the garage management system allows you to track vehicle usage and mileage. Each time a vehicle is used or driven, the system records relevant information such as distance traveled, time spent, and routes taken. You can view the accumulated mileage for each vehicle and monitor its usage patterns over time.</p>
+            </section>
+            
+            
+            <!-- Add more FAQ sections as needed -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Garage Management System</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // JavaScript for toggling FAQ answers and filtering FAQ items based on search input
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const questions = document.querySelectorAll('.question');
+
+            questions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+
+            const searchInput = document.getElementById('searchInput');
+            const faqItems = document.querySelectorAll('.faq');
+
+            searchInput.addEventListener('input', function() {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                faqItems.forEach(faqItem => {
+                    const question = faqItem.querySelector('.question').innerText.toLowerCase();
+                    const answer = faqItem.querySelector('.answer').innerText.toLowerCase();
+
+                    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                        faqItem.style.display = 'block';
+                    } else {
+                        faqItem.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
